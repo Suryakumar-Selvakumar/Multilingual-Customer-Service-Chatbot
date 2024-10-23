@@ -33,7 +33,7 @@ This multilingual dataset was obtained by using **MarianMT models - *opus-mt-en-
     iv) `pytorch_model.bin` - `models/mbart-large-50/`
 
 - Once done, place the `models` folder inside the cloned repo in the same directory as the project notebooks.
-- NOTE: I had to store my models on Google Drive as `git-lfs` upload kept failing because it was unreliable with my slow internet speed.
+- NOTE: I had to store my models on Google Drive as `git-lfs` upload kept failing because my slow internet speed was unreliable.
 
 **3. Use `conda` and `environment.yml` to create a virtual env with all required dependencies:**
 

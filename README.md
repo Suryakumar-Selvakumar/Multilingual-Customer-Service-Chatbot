@@ -13,7 +13,9 @@ This multilingual dataset was obtained by using **MarianMT models - *opus-mt-en-
 
 *Note: More info may be added upon completion of Project Report works.*
 
-## Instructions to Run the Project (IMPORTANT: Read all the instructions once before following them)
+## Instructions to Run the Project
+
+**IMPORTANT: Read all the instructions once before following them**
 
 **1. Clone the repo locally using:** <br>
 `git clone https://github.com/yourusername/your-repo.git`

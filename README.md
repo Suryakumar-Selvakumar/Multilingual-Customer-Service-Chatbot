@@ -11,36 +11,34 @@ The chatbot was built by fine-tuning the **mBART-large-50** model (which is desi
 
 This multilingual dataset was obtained by using **MarianMT models - *opus-mt-en-fr & opus-mt-en-es*** to translate **Bitext Customer Support LLM Chatbot Training Dataset** (which contains only English interactions) into French and Spanish. 
 
-*Note: More info may be added here upon completion of Project Report works.*
+*Note: More info may be added upon completion of Project Report works.*
 
 ## Instructions to Run the Project (IMPORTANT: Read all the instructions once before following them)
 
-**1. Make sure you have `Git-LFS` installed:**
-
-- *For Linux (Ubuntu/Debian-based):* <br>
-  `sudo apt-get install git-lfs`
-- *For macOS (using Homebrew):* <br>
-  `brew install git-lfs`
-- *For Windows:* <br>
-  `winget install -i -e --id GitHub.GitLFS`
-
-**2. Once installed, run:** <br>
-`git lfs install`
-
-**3. Now, you can clone the repo locally using:** <br>
+**1. Clone the repo locally using:** <br>
 `git clone https://github.com/yourusername/your-repo.git`
 
-**4. Git-LFS has a file size limit of `2GB` so I had to compress 2 of the model files.**
+**2. Download the models folder from this Drive [Link](https://drive.google.com/drive/folders/1Or6SQIoqOEhYCPT2Jrtaha3_OsyKc9xp?usp=sharing)**
+- The size of the folder is around `9.2GB`.  
+- The download may occur in parts as the large files may not get zipped together with the smaller files. In that case, ensure the following large files are placed in the following paths:
 
-- Upon downloading the whole repo, extract the following files in the folder they exist in: `pytorch_model.zip` & `model.safetensors.zip`. Ensure the names of the extracted files are: `pytorch_model.bin` & `model.safetensors`.
-- Alternatively, you can download the models folder with all the models (size: around `9.2GB`) from this Google Drive [link](https://drive.google.com/drive/folders/1Or6SQIoqOEhYCPT2Jrtaha3_OsyKc9xp?usp=sharing). Replace the `models` folder in the cloned repo with the downloaded `models` folder.
+    i) `05d892bf4a3e34b9a4de239109387d43107b2a8c55ad34b73a929ca6c1ede24e` - `models/comet/models--Unbabel--wmt20-comet-qe-da/blobs/`
+    
+    ii) `model.ckpt` - `models/comet/models--Unbabel--wmt20-comet-qe-da/snapshots/2e7ffc84fb67d99cf92506611766463bb9230cfb/checkpoints`
 
-**5. Use `conda` and `environment.yml` to create the project's virtual env:**
+    iii) `model.safetensors` - `models/final_mbart_model/`
+
+    iv) `pytorch_model.bin` - `models/mbart-large-50/`
+
+- Once done, place the `models` folder inside the cloned repo in the same directory as the project notebooks.
+- NOTE: I had to store my models on Google Drive as `git-lfs` upload kept failing because it was unreliable with my slow internet speed.
+
+**3. Use `conda` and `environment.yml` to create a virtual env with all required dependencies:**
 
 - `conda env create -f environment.yml`
 - activate conda env with `conda activate chatbot-env`
 
-**6. Steps to run the project:**
+**4. Steps to run the project files:**
 
 - Create an ipykernel with your conda env using `python -m ipykernel install --user --name=chatbot-env`
 - Now, use `jupyter notebook` command to launch the jupyter notebook server, from which you can run the notebooks. Make sure to switch to `chatbot-env` kernel before running the notebooks.

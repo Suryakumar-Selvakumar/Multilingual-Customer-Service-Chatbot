@@ -63,4 +63,4 @@ The code in the notebooks are setup in such a way that new data won't be created
 - *Notebook - 2 - Multilingual Dataset Analysis:* This notebook should run fairly quickly, the last code cell may take a while depending on your `GPU`.
 - *Notebook - 3 - MBart Model Trainer:* You will need an extremely powerful GPU to run this notebook, I opted to use Google Colab Pro which provided the `NVIDIA A100-SXM4-40GB` GPU.
 - *Notebook - 4 - MBart Model Evaluation:* This notebook took `11 hrs` to run on my System. Depending on your system specs, it may run faster or much slower.
-- *chatbot_interface_gradio:* The response times for the user instructions will vary depending on your system. More powerful the System = Faster response times.
+- *chatbot_interface_gradio:* The response times of the chatbot will vary depending on your system. More powerful the System = Faster response times.

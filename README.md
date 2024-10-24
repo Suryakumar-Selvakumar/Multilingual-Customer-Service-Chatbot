@@ -26,14 +26,14 @@ This multilingual dataset was obtained by using **MarianMT models - *opus-mt-en-
 
     i) `05d892bf4a3e34b9a4de239109387d43107b2a8c55ad34b73a929ca6c1ede24e` - `models/comet/models--Unbabel--wmt20-comet-qe-da/blobs/`
     
-    ii) `model.ckpt` - `models/comet/models--Unbabel--wmt20-comet-qe-da/snapshots/2e7ffc84fb67d99cf92506611766463bb9230cfb/checkpoints`
+    ii) `model.ckpt` - `models/comet/models--Unbabel--wmt20-comet-qe-da/snapshots/2e7ffc84fb67d99cf92506611766463bb9230cfb/checkpoints/`
 
     iii) `model.safetensors` - `models/final_mbart_model/`
 
     iv) `pytorch_model.bin` - `models/mbart-large-50/`
 
 - Once done, place the `models` folder inside the cloned repo in the same directory as the project notebooks.
-- NOTE: I had to store my models on Google Drive as `git-lfs` upload kept failing because it was unreliable with my slow internet speed.
+- NOTE: I had to store my models on Google Drive as `git-lfs` upload kept failing because my slow internet speed was unreliable.
 
 **3. Use `conda` and `environment.yml` to create a virtual env with all required dependencies:**
 
@@ -61,6 +61,6 @@ The code in the notebooks are setup in such a way that new data won't be created
 **3. Additional File-Specific Information:**
 - *Notebook - 1 - Multilingual Dataset Creation:* Translation of the original dataset to `French` and `Spanish` took around `5.14 hrs` on my System.
 - *Notebook - 2 - Multilingual Dataset Analysis:* This notebook should run fairly quickly, the last code cell may take a while depending on your `GPU`.
-- *Notebook - 3 - MBart Model Trainer:* You will need an extremely powerful GPU to run this notebook, I opted to use Google Colab Pro which provided the `NVIDIA A100-SXM4-40GB` GPU.
-- *Notebook - 4 - MBart Model Evaluation:* This notebook took `11 hrs` to run on my System. Depending on your system specs, it may run faster or much slower.
-- *chatbot_interface_gradio:* The response times for the user instructions will vary depending on your system. More powerful the System = Faster response times.
+- *Notebook - 3 - MBart Model Trainer:* The user will need an extremely powerful GPU to run this notebook, I opted to use Google Colab Pro which provided the `NVIDIA A100-SXM4-40GB` GPU.
+- *Notebook - 4 - MBart Model Evaluation:* This notebook took `11 hrs` to run on my System. Depending on the user's system specs, it may run faster or much slower.
+- *chatbot_interface_gradio:* The response times of the chatbot will vary depending on the user's system. More powerful the System = Faster response times.

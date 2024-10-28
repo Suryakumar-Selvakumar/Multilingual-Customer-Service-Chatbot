@@ -46,7 +46,7 @@ _Note: More info may be added upon completion of Project Report works._
 
 - Create an ipykernel with your conda env using `python -m ipykernel install --user --name=chatbot-env`
 - Now, use `jupyter notebook` command to launch the jupyter notebook server, from which you can run the notebooks. Make sure to switch to `chatbot-env` kernel before running the notebooks.
-- To interact with the Chatbot, run `python chatbot_interface_gradio.py`.
+- To interact with the Chatbot, run `python chatbot_interface_gradio.py`. Feel free to use the sample questions in `sample_questions.md`
 
 ## Additional instructions for running the project that may be helpful:
 

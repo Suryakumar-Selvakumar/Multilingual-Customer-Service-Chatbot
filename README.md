@@ -54,7 +54,7 @@ _Note: More info may be added upon completion of Project Report works._
 - Now, use `jupyter notebook` command to launch the jupyter notebook server, from which you can run the notebooks. Make sure to switch to `chatbot-env` kernel before running the notebooks.
 - To interact with the Chatbot, run `python chatbot_interface_gradio.py`. Feel free to use the sample questions in `sample_questions.md`
 
-## Additional instructions for running the project that may be helpful:
+## Additional information pertaining to running the project that may be helpful:
 
 **1. Run times for the notebooks and Response times for the Chatbot may vary _drastically_ depending on your system specs. Below is the System that was used to build the project:**
 

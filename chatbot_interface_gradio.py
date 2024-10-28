@@ -24,9 +24,8 @@ def generate_response(input_text, max_length=256, num_beams=5, min_length=125):
     # Set the source language token
     tokenizer.src_lang = language_code
 
-    # Tokenize and move the inputs to the GPU
     model_inputs = tokenizer(input_text, return_tensors="pt", padding=True)
-    model_inputs = {key: value.to('cuda') for key, value in model_inputs.items()}  # Move all inputs to GPU
+    model_inputs = {key: value.to('cuda') for key, value in model_inputs.items()} 
 
     # Generate response
     generated_tokens = model.generate(
@@ -44,9 +43,10 @@ def generate_response(input_text, max_length=256, num_beams=5, min_length=125):
     # Decode the response
     response = tokenizer.decode(generated_tokens[0], skip_special_tokens=True)
 
-    # Add line breaks before numbers followed by a dot (e.g., "1.", "2.", etc.)
-    # This pattern ensures only standalone numbers followed by a period are affected.
-    response = re.sub(r'(?<!\d)(\b\d{1,2}\.\s)', r'\n\1', response)
+    # Add line breaks before numbers followed by a dot
+    response = re.sub(r'(?<!\d)(\b\d{1,2}\.\s)', r'\n\t\1', response)
+
+    # Remove unnecessary asterisks
     response = re.sub(r'\*', '', response)
     return response
 

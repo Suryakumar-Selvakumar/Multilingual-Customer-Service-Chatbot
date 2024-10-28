@@ -13,6 +13,12 @@ This multilingual dataset was obtained by using **MarianMT models - _opus-mt-en-
 
 _Note: More info may be added upon completion of Project Report works._
 
+## Sample Output
+
+<div align="center">
+   <img width=auto height=auto src="chatbot-working.png" alt="An image of the Chatbot UI"></a>
+</div>
+
 ## Instructions to Run the Project
 
 **IMPORTANT: Read all the instructions once before following them**
@@ -22,7 +28,7 @@ _Note: More info may be added upon completion of Project Report works._
 
 **2. Download the models folder from this Drive [Link](https://drive.google.com/drive/folders/1Or6SQIoqOEhYCPT2Jrtaha3_OsyKc9xp?usp=sharing)**
 
-- The size of the folder is around `9.2GB`. 
+- The size of the folder is around `9.2GB`.
 - If `COMET` evaluation is not a concern or the user wishes to download the `COMET` model themselves, then please skip that model.
 - The download may occur in parts as the large files may not get zipped together with the smaller files. In that case, ensure the following large files are placed in the following paths:
 

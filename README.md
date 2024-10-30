@@ -54,7 +54,7 @@ _Note: More info may be added upon completion of Project Report works._
 - Now, use `jupyter notebook` command to launch the jupyter notebook server, from which you can run the notebooks. Make sure to switch to `chatbot-env` kernel before running the notebooks.
 - To interact with the Chatbot, run `python chatbot_interface_gradio.py`. Feel free to use the sample questions in `sample_questions.md`
 
-## Additional instructions for running the project that may be helpful:
+## Information pertaining to running the project that may be helpful:
 
 **1. Run times for the notebooks and Response times for the Chatbot may vary _drastically_ depending on your system specs. Below is the System that was used to build the project:**
 
@@ -72,5 +72,5 @@ The code in the notebooks are setup in such a way that new data won't be created
 - _Notebook - 1 - Multilingual Dataset Creation:_ Translation of the original dataset to `French` and `Spanish` took around `5.14 hrs` on my System.
 - _Notebook - 2 - Multilingual Dataset Analysis:_ This notebook should run fairly quickly, the last code cell may take a while depending on your `GPU`.
 - _Notebook - 3 - MBart Model Trainer:_ The user will need an extremely powerful GPU to run this notebook, I opted to use Google Colab Pro which provided the `NVIDIA A100-SXM4-40GB` GPU.
-- _Notebook - 4 - MBart Model Evaluation:_ This notebook took `11 hrs` to run on my System. Depending on the user's system specs, it may run faster or much slower. Try lowering the `num_beams` parameter in the `generate_response()` function if the run time is too long but the metrics may get worse.
+- _Notebook - 4 - MBart Model Evaluation:_ This notebook took `11 hrs` to run on my System. Depending on the user's system specs, it may run faster or much slower. Try lowering the `num_beams` parameter in the `generate_response()` function if the run time is too long but the metrics may get worse. Please refer to `Performance-Log.md` in the `Training Log` directory for a comprehensive report of the metrics I achieved.
 - _chatbot_interface_gradio:_ The response times of the chatbot will vary depending on the user's system. More powerful the System = Faster response times. As before, lowering `num_beams` may help with the response times but the response quality may get worse.

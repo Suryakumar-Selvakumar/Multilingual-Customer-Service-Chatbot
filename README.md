@@ -47,7 +47,7 @@ _Note: More info may be added upon completion of Project Report works._
 
 - `conda env create -f environment.yml`
 - activate conda env with `conda activate chatbot-env`
-- It is highly recommended to run this project in a linux system. If that is not an option, please substitute environment-no-builds.yml in the above command for a platform-agnostic version of the environment. Any windows-specific packages that this project might need may have to be manually installed.
+- It is highly recommended to run this project on a Linux system. If that is not an option, please substitute `environment-no-builds.yml` in the above command for a platform-agnostic version of the environment. Any windows-specific packages that this project might need and any potential dependency conflicts may have to be manually installed and resolved, respectively.
 
 **4. Steps to run the project files:**
 

@@ -43,11 +43,20 @@ _Note: More info may be added upon completion of Project Report works._
 - Once done, place the `models` folder inside the cloned repo in the same directory as the project notebooks.
 - NOTE: I had to store my models on Google Drive as `git-lfs` upload kept failing because my slow internet speed was unreliable.
 
-**3. Use `conda` and `environment.yml` to create a virtual env with all required dependencies:**
+**3. Create a virtual env with Conda and Install all required dependencies:**
 
+*Approach #1: Use provided `environment.yml`*
 - `conda env create -f environment.yml`
 - activate conda env with `conda activate chatbot-env`
-- It is highly recommended to run this project on a Linux system. If that is not an option, please substitute `environment-no-builds.yml` in the above command for a platform-agnostic version of the environment. Any windows-specific packages that this project might need and any potential dependency conflicts may have to be manually installed and resolved, respectively.
+- It is highly recommended to run this project on a Linux system. If that is not an option, please follow Approach #2.
+
+*Approach #2: Use provided `requirements.txt`*
+- `conda create -n your-env-name python=3.9`
+- `conda activate your-env-name`
+- `pip install -r requirements.txt`
+- OS-specific Conda libraries that may be needed for the project have to be installed manually.
+
+
 
 **4. Steps to run the project files:**
 

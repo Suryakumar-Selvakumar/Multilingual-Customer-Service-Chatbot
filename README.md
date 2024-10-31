@@ -45,18 +45,18 @@ _Note: More info may be added upon completion of Project Report works._
 
 **3. Create a virtual env with Conda and Install all required dependencies:**
 
-*Approach #1: Use provided `environment.yml`*
+_Approach #1: Use provided `environment.yml`_
+
 - `conda env create -f environment.yml`
 - activate conda env with `conda activate chatbot-env`
 - It is highly recommended to run this project on a Linux system. If that is not an option, please follow Approach #2.
 
-*Approach #2: Use provided `requirements.txt`*
+_Approach #2: Use provided `requirements.txt`_
+
 - `conda create -n your-env-name python=3.9`
 - `conda activate your-env-name`
 - `pip install -r requirements.txt`
-- OS-specific Conda libraries that may be needed for the project have to be installed manually.
-
-
+- OS-specific Conda libraries that may be needed for the project may have to be installed manually.
 
 **4. Steps to run the project files:**
 

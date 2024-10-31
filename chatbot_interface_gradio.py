@@ -1,3 +1,4 @@
+# Importing needed libs
 import gradio as gr
 from transformers import MBartForConditionalGeneration, MBart50TokenizerFast
 import torch
@@ -81,7 +82,7 @@ def clear_chat():
 
 # Create the Gradio interface
 with gr.Blocks() as demo:
-    # Add custom CSS for styling messages and controlling page width
+    # Add custom CSS
     demo.css = """
     .user-name {
         text-align: right;
@@ -150,15 +151,14 @@ with gr.Blocks() as demo:
     # Main container to control the overall layout width
     with gr.Row(elem_id="main-container"):
         with gr.Column(scale=3):
-            # Center-aligned heading and description
             gr.Markdown("<div class='center-text'><h1>Multilingual Customer Service Chatbot - Suryakumar Selvakumar</h1></div>")
             gr.Markdown("<div class='center-text'>Interact with the multilingual chatbot in your preferred language (English, French, or Spanish).</div>")
 
-            # Combined chat area and user input in the same container
+            # Chat Window to see the user and chatbot conversation
             with gr.Column(elem_id="chat-container"):
                 chatbot_output = gr.HTML(label="Chatbot Conversation")
 
-            # Buttons for submitting or clearing the chat, positioned horizontally
+            # Text-Box for user-input and Buttons for submitting or clearing the chat 
             with gr.Row(elem_id="user-container"):
                 user_input = gr.Textbox(lines=1, placeholder="Enter your question here...", label="", elem_id="user-input")
                 
@@ -166,7 +166,7 @@ with gr.Blocks() as demo:
                     submit_button = gr.Button("Submit", elem_id="submit-btn")
                     clear_button = gr.Button("Clear Chat", elem_id="clear-btn")
 
-    # Logic to update the chat conversation and clear user input
+    # Logic for the buttons when clicked
     submit_button.click(fn=chatbot_interface, inputs=user_input, outputs=chatbot_output).then(lambda: "", inputs=None, outputs=user_input)
     clear_button.click(fn=clear_chat, inputs=None, outputs=chatbot_output)
 

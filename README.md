@@ -16,7 +16,12 @@ _Note: More info may be added upon completion of Project Report works._
 ## Sample Output
 
 <div align="center">
-   <img width=auto height=auto src="chatbot-working.png" alt="An image of the Chatbot UI"></a>
+   <h3 align="left">English:</h3>
+   <img width=auto height=auto src="./Output Samples/en.png" alt="Chatbot response in English">
+   <h3 align="left">French:</h3>
+   <img width=auto height=auto src="./Output Samples/fr.png" alt="Chatbot response in French">
+   <h3 align="left">Spanish:</h3>
+   <img width=auto height=auto src="./Output Samples/es.png" alt="Chatbot response in Spanish">
 </div>
 
 ## Instructions to Run the Project

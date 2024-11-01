@@ -1,16 +1,17 @@
 # Importing needed libs
+import re
+import langid  # Library for language detection
 import gradio as gr
 from transformers import MBartForConditionalGeneration, MBart50TokenizerFast
 import torch
-import langid  # Library for language detection
-import re
+
 
 # Load the model and tokenizer from the directory
 model_dir = "models/final_mbart_model"
 model = MBartForConditionalGeneration.from_pretrained(model_dir).to('cuda')  # Move model to GPU
 tokenizer = MBart50TokenizerFast.from_pretrained(model_dir)
 
-# Function to generate a response
+# This function generates a response from the model
 def generate_response(input_text, max_length=256, num_beams=5, min_length=125):
     # Detect language of input text using langid
     detected_lang, _ = langid.classify(input_text)
@@ -28,7 +29,7 @@ def generate_response(input_text, max_length=256, num_beams=5, min_length=125):
     model_inputs = tokenizer(input_text, return_tensors="pt", padding=True)
     model_inputs = {key: value.to('cuda') for key, value in model_inputs.items()} 
 
-    # Generate response
+    # model response
     generated_tokens = model.generate(
         input_ids=model_inputs['input_ids'],
         attention_mask=model_inputs['attention_mask'],
@@ -41,7 +42,7 @@ def generate_response(input_text, max_length=256, num_beams=5, min_length=125):
         early_stopping=True
     )
 
-    # Decode the response
+    # Response decoding using tokenizer
     response = tokenizer.decode(generated_tokens[0], skip_special_tokens=True)
 
     # Add line breaks before numbers followed by a dot
@@ -80,21 +81,21 @@ def clear_chat():
     conversation_history = []
     return ""
 
-# Create the Gradio interface
+# Create the interface
 with gr.Blocks() as demo:
     # Add custom CSS
     demo.css = """
     .user-name {
-        text-align: right;
-        padding-right: 10px;
-        font-style: italic;
         font-weight: 550;
+        padding-right: 10px;
+        text-align: right;
+        font-style: italic;
     }
     .bot-name {
-        text-align: left;
         padding-left: 10px;
         font-style: italic;
         font-weight: 550;
+        text-align: left;
     }
     .user-message {
         background-color: #fde68a;  /* Soft yellow/orange for user */

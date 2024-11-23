@@ -8,7 +8,7 @@ import torch
 
 # Load the model and tokenizer from the directory
 model_dir = "models/final_mbart_model"
-model = MBartForConditionalGeneration.from_pretrained(model_dir).to('cuda')  # Move model to GPU
+model = MBartForConditionalGeneration.from_pretrained(model_dir).to('cuda')
 tokenizer = MBart50TokenizerFast.from_pretrained(model_dir)
 
 # This function generates a response from the model
@@ -21,9 +21,8 @@ def generate_response(input_text, max_length=256, num_beams=5, min_length=125):
         "en": "en_XX",
         "fr": "fr_XX",
         "es": "es_XX"
-    }.get(detected_lang, "en_XX")  # Default to English if language is not recognized
+    }.get(detected_lang, "en_XX")
 
-    # Set the source language token
     tokenizer.src_lang = language_code
 
     model_inputs = tokenizer(input_text, return_tensors="pt", padding=True)
@@ -42,7 +41,6 @@ def generate_response(input_text, max_length=256, num_beams=5, min_length=125):
         early_stopping=True
     )
 
-    # Response decoding using tokenizer
     response = tokenizer.decode(generated_tokens[0], skip_special_tokens=True)
 
     # Add line breaks before numbers followed by a dot
@@ -52,9 +50,10 @@ def generate_response(input_text, max_length=256, num_beams=5, min_length=125):
     response = re.sub(r'\*', '', response)
     return response
 
-# Define a function for Gradio to handle input/output
+# Global list to store the conversations
 conversation_history = []
 
+# Define a function for Gradio to handle input/output
 def chatbot_interface(user_input):
     global conversation_history
 
@@ -76,6 +75,7 @@ def chatbot_interface(user_input):
 
     return conversation_display
 
+# Function to clear the chat window
 def clear_chat():
     global conversation_history
     conversation_history = []
@@ -83,7 +83,6 @@ def clear_chat():
 
 # Create the interface
 with gr.Blocks() as demo:
-    # Add custom CSS
     demo.css = """
     .user-name {
         font-weight: 550;
@@ -98,8 +97,8 @@ with gr.Blocks() as demo:
         text-align: left;
     }
     .user-message {
-        background-color: #fde68a;  /* Soft yellow/orange for user */
-        text-align: right;  /* Align user messages to the right */
+        background-color: #fde68a; 
+        text-align: right; 
         padding: 10px;
         margin: 5px;
         border-radius: 10px;
@@ -107,23 +106,23 @@ with gr.Blocks() as demo:
         margin-left: auto;
     }
     .bot-message {
-        background-color: #e0f7fa;  /* Light blue for bot */
-        text-align: left;  /* Align bot messages to the left */
+        background-color: #e0f7fa;  
+        text-align: left;  
         padding: 10px;
         margin: 5px;
         border-radius: 10px;
         max-width: 70%;
         margin-right: auto;
-        white-space: pre-wrap; /* Maintain line breaks */
+        white-space: pre-wrap; 
     }
     #chat-container {
         border: 1px solid #cccccc;
         min-height: 65vh;
         max-height: 65vh;
         overflow-y: scroll;
-        padding: 15px;  /* Space inside chat window for neatness */
-        background-color: #ffffff;  /* White background for chat window */
-        margin-bottom: 15px;  /* Space between chat window and user input area */
+        padding: 15px;  
+        background-color: #ffffff;  
+        margin-bottom: 15px;  
         border-radius: 10px;
     }
     #user-input {
@@ -135,7 +134,7 @@ with gr.Blocks() as demo:
     }
     #main-container {
         width: 50%;  
-        margin: 0 auto;  /* Center the container horizontally */
+        margin: 0 auto;  
     }
     #user-container {
         display: grid;
@@ -149,7 +148,7 @@ with gr.Blocks() as demo:
     }
     """
 
-    # Main container to control the overall layout width
+    # Main container of the interface
     with gr.Row(elem_id="main-container"):
         with gr.Column(scale=3):
             gr.Markdown("<div class='center-text'><h1>Multilingual Customer Service Chatbot - Suryakumar Selvakumar</h1></div>")
@@ -159,7 +158,7 @@ with gr.Blocks() as demo:
             with gr.Column(elem_id="chat-container"):
                 chatbot_output = gr.HTML(label="Chatbot Conversation")
 
-            # Text-Box for user-input and Buttons for submitting or clearing the chat 
+            # Text-Box for user-input and Buttons for submitting/clearing the chat 
             with gr.Row(elem_id="user-container"):
                 user_input = gr.Textbox(lines=1, placeholder="Enter your question here...", label="", elem_id="user-input")
                 

@@ -8,7 +8,7 @@ Today’s globalized business environments demand the provision of consistent an
 
 The Multilingual Customer Support dataset required to train the chatbot was created by using MarianMT models – opus-mt-en-fr & opus-mt-en-es and translating Bitext Customer Support LLM Chatbot Training Dataset containing English interactions, into French and Spanish. This dataset was then used to fine-tune the mBART-large-50 model to respond to customer service queries in the aforementioned three languages. A web interface was built with Gradio, to allow interaction with the chatbot, which is fast and capable of handling customer queries and providing high-quality formatted responses in multiple languages within the same chat interaction.
 
-_For a comprehensive report of the Project, please refer to the [MS Course Project Report](./Report/Suryakumar%20Selvakumar%20-%20MS%20Course%20Project%20Report.pdf)_
+_For a comprehensive report of the Project, please refer to the [MS Course Project Report](./Docs/Suryakumar%20Selvakumar%20-%20MS%20Course%20Project%20Report.pdf)_
 
 ## Sample Output
 

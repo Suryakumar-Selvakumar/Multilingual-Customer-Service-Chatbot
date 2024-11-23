@@ -4,14 +4,11 @@ This is my **MS Course Project**, aligned with the course - **Natural Language P
 
 ## Project Description
 
-This project aimed to develop a seamless multilingual single-turn customer service chatbot capable of accurately responding to
-inquiries in English, French, and Spanish.
+Today’s globalized business environments demand the provision of consistent and efficient customer service across multiple languages, and companies around the world are struggling to provide it reliably. The aim of this project is to develop an efficient & seamless Multilingual Single-turn Customer Service Chatbot capable of accurately responding to customer inquiries in multiple languages, namely, English, French, and Spanish.
 
-The chatbot was built by fine-tuning the **mBART-large-50** model (which is designed to handle multiple languages within a single framework) on a **Multilingual Customer Support Training Dataset** which includes customer service interactions in the aforementioned three languages.
+The Multilingual Customer Support dataset required to train the chatbot was created by using MarianMT models – opus-mt-en-fr & opus-mt-en-es and translating Bitext Customer Support LLM Chatbot Training Dataset containing English interactions, into French and Spanish. This dataset was then used to fine-tune the mBART-large-50 model to respond to customer service queries in the aforementioned three languages. A web interface was built with Gradio, to allow interaction with the chatbot, which is fast and capable of handling customer queries and providing high-quality formatted responses in multiple languages within the same chat interaction.
 
-This multilingual dataset was obtained by using **MarianMT models - _opus-mt-en-fr & opus-mt-en-es_** to translate **Bitext Customer Support LLM Chatbot Training Dataset** (which contains only English interactions) into French and Spanish.
-
-_Note: More info may be added upon completion of Project Report works._
+_For a comprehensive report of the Project, please refer to the [MS Course Project Report](./Report/Suryakumar%20Selvakumar%20-%20MS%20Course%20Project%20Report.pdf)_
 
 ## Sample Output
 
@@ -67,7 +64,7 @@ _Approach #2: Use provided `requirements.txt`_
 
 - Create an ipykernel with your conda env using `python -m ipykernel install --user --name=chatbot-env`
 - Now, use `jupyter notebook` command to launch the jupyter notebook server, from which you can run the notebooks. Make sure to switch to `chatbot-env` kernel before running the notebooks.
-- To interact with the Chatbot, run `python chatbot_interface_gradio.py`. Feel free to use the sample questions in `sample_questions.md`
+- To interact with the Chatbot, run `python chatbot_interface_gradio.py`. Feel free to use any instructions from the [dataset](./data/Multilingual_Customer_Support_Training_Dataset_Cleaned.csv) or the [sample questions](./Docs/sample-questions.md) provided.
 
 ## Information pertaining to running the project that may be helpful:
 
@@ -80,12 +77,12 @@ _Approach #2: Use provided `requirements.txt`_
 - CUDA Version: _12.5_
 
 **2. NOTE:** <br>
-The code in the notebooks are setup in such a way that new data won't be created if that data already exists. If you wish to regenerate any data using any of the models, ensure to delete the respective pre-existing files. Be careful not to delete `Bitext_Sample_Customer_Support_Training_Dataset.csv` as it's the original training dataset.
+The code in the notebooks are setup in such a way that new data won't be created if that data already exists. If you wish to regenerate any data using any of the models, ensure to delete the respective pre-existing files or change the name of the files. Be careful not to delete `Bitext_Sample_Customer_Support_Training_Dataset.csv` as it's the original training dataset.
 
 **3. File-Specific Information:**
 
 - _Notebook - 1 - Multilingual Dataset Creation:_ Translation of the original dataset to `French` and `Spanish` took around `5.14 hrs` on my System.
 - _Notebook - 2 - Multilingual Dataset Analysis:_ This notebook should run fairly quickly, the last code cell may take a while depending on your `GPU`.
 - _Notebook - 3 - MBart Model Trainer:_ The user will need an extremely powerful GPU to run this notebook, I opted to use Google Colab Pro which provided the `NVIDIA A100-SXM4-40GB` GPU.
-- _Notebook - 4 - MBart Model Evaluation:_ This notebook took `11 hrs` to run on my System. Depending on the user's system specs, it may run faster or much slower. Try lowering the `num_beams` parameter in the `generate_response()` function if the run time is too long but the metrics may get worse. Please refer to `Performance-Log.md` in the `Training Log` directory for a comprehensive report of the metrics I achieved.
+- _Notebook - 4 - MBart Model Evaluation:_ This notebook took `11 hrs` to run on my System. Depending on the user's system specs, it may run faster or much slower. Try lowering the `num_beams` parameter in the `generate_response()` function by one or two values if the run time is too long but the metrics may get worse. For a comprehensive report of the metrics I achieved, please refer to the [Performance Log document](./Docs/Performance-Log.md).
 - _chatbot_interface_gradio:_ The response times of the chatbot will vary depending on the user's system. More powerful the System = Faster response times. As before, lowering `num_beams` may help with the response times but the response quality may get worse.
